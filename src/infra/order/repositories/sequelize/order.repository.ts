@@ -1,13 +1,13 @@
-import { Address } from "../../domain/entity/address";
-import { Customer } from "../../domain/entity/customer";
-import { Order } from "../../domain/entity/order";
-import { OrderItem } from "../../domain/entity/order_item";
-import { Product } from "../../domain/entity/product";
-import { CustomerModel } from "../db/sequelize/model/customer.model";
-import { OrderItemModel } from "../db/sequelize/model/order-item.model";
-import { OrderModel } from "../db/sequelize/model/order.model";
+import { Order } from "../../../../domain/checkout/entity/order";
+import { OrderItem } from "../../../../domain/checkout/entity/order_item";
+import { OrderRepositoryInterface } from "../../../../domain/checkout/repositories/order-repository";
+import { Customer } from "../../../../domain/customer/entity/customer";
+import { Address } from "../../../../domain/customer/entity/value-object/address";
+import { CustomerModel } from "../../../customer/repositories/sequelize/customer.model";
+import { OrderItemModel } from "./order-item.model";
+import { OrderModel } from "./order.model";
 
-export class OrderRepository {
+export class OrderRepository implements OrderRepositoryInterface {
   async create(entity: Order): Promise<void> {
     const orderModdel = await OrderModel.create(
       {
