@@ -19,7 +19,7 @@ describe('Unit test find a product use case', () => {
       ProductModel
     ]);
     await sequelize.sync();
-  });
+  }, 10000);
 
   afterEach(async () => {
     await sequelize.close();

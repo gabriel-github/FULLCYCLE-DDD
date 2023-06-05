@@ -20,7 +20,7 @@ describe('Unit test list all products', () => {
       ProductModel
     ]);
     await sequelize.sync();
-  });
+  }, 10000);
 
   afterEach(async () => {
     await sequelize.close();
